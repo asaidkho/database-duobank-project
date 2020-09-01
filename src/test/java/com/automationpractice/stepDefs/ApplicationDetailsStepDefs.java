@@ -1,12 +1,12 @@
 package com.automationpractice.stepDefs;
 
 
-import java.sql.Driver;
 
 import com.automationpractice.pages.ApplicationPage;
 import com.automationpractice.pages.BasePage;
 import com.automationpractice.pages.DashboardPage;
 import com.automationpractice.utilities.ConfigReader;
+import com.automationpractice.utilities.Driver;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -18,19 +18,13 @@ public class ApplicationDetailsStepDefs {
 	
 	@Given("I am on the mainpage")
 	public void i_am_on_the_mainpage() {
-		
-		Driver.getDriver().get(ConfigReader.getProperty("url"));	    
-	
+			
+		Driver.getDriver().get(ConfigReader.getProperty("url"));	   
 	}
-
-	@When("I log in to account")
-	public void i_log_in_to_account() {
 		
-		BasePage bp = new BasePage();
-		bp.loginEmail.sendKeys("dtrump@gmail.com");
-		bp.loginPassword.sendKeys("trump123");
-		bp.loginButton.click();
-	   
+	@When("I enter the following  deatils and  I log in")
+	public void iEnterTheFollowingDeatilsAndILogIn(io.cucumber.datatable.DataTable dataTable) {
+	 
 	}
 
 	@When("I land on a Dashboard I click on Application list")
@@ -38,7 +32,6 @@ public class ApplicationDetailsStepDefs {
 	   
 		DashboardPage dp = new DashboardPage();
 		dp.applicationList.click();
-		
 	}
 
 	@When("I click View Details to open application")
@@ -47,34 +40,11 @@ public class ApplicationDetailsStepDefs {
 		dp.viewDetails.click();
 	}
 
-	
+	@Then("I verify Application details are matching with Application details in the DB")
+	public void iVerifyApplicationDetailsAreMatchingWithApplicationDetailsInTheDB() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
 }
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-}
+
