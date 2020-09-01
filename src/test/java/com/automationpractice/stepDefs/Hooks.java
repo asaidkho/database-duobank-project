@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
+import com.automationpractice.pages.BasePage;
 import com.automationpractice.utilities.ConfigReader;
 import com.automationpractice.utilities.DatabaseUtils;
 import com.automationpractice.utilities.Driver;
@@ -22,6 +23,10 @@ public class Hooks {
 		Driver.getDriver().manage().timeouts()
 			.implicitlyWait(Long.parseLong(ConfigReader.getProperty("implicitWait")), TimeUnit.SECONDS);
 		Driver.getDriver().manage().window().maximize();
+		BasePage bp = new BasePage();
+		bp.loginEmail.sendKeys(ConfigReader.getProperty("username"));
+		bp.loginPassword.sendKeys(ConfigReader.getProperty("password"));
+		bp.loginButton.click();
 			
 	}
 	
