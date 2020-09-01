@@ -23,4 +23,14 @@ public class BasePage {
 	public WebElement loginButton;
 	
 	
+	
+	
+	@FindBy(id="exampleInputEmail1")
+	public WebElement email;
+	
+	@FindBy(id="exampleInputPassword1")
+	public WebElement password;
+	
+	
+	
 }

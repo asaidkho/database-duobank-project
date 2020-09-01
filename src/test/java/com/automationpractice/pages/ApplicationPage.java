@@ -9,7 +9,7 @@ public class ApplicationPage extends BasePage {
     public WebElement own;
 
 	@FindBy(xpath = "//table[2]/tbody/tr[2]/td[1]")
-	public WebElement email;
+	public WebElement email1;
 
 	@FindBy(xpath= "//table[2]/tbody/tr[2]/td[2]")
 	public WebElement DateOfBirth;
