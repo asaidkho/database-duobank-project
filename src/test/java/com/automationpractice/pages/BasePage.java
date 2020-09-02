@@ -22,9 +22,6 @@ public class BasePage {
 	@FindBy(name="login")
 	public WebElement loginButton;
 	
-	
-	
-	
 	@FindBy(id="exampleInputEmail1")
 	public WebElement email;
 	

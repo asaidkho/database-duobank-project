@@ -42,7 +42,7 @@ public class ApplicationPage extends BasePage {
 	public WebElement loanOfficer;
 	
 	@FindBy(xpath = "//table[1]/tbody/tr[1]/td[3]")
-	public WebElement purposeOfLoan;
+	public WebElement purposeLoan;
 	
 	@FindBy(xpath = "//table[1]/tbody/tr[1]/td[2]")
 	public WebElement realtorInfo;
@@ -59,10 +59,10 @@ public class ApplicationPage extends BasePage {
 	@FindBy(xpath = "//table[4]/tbody/tr[1]/td[2]")
 	public WebElement position;
 	
-	@FindBy(xpath = "//table[4]/tbody/tr[1]/td[2]")
+	@FindBy(xpath = "//table[4]/tbody/tr[2]/td[2]")
 	public WebElement state;
 	
-	@FindBy(xpath = "//table[4]/tbody/tr[1]/td[2]")
+	@FindBy(xpath = "//table[4]/tbody/tr[2]/td[1]")
 	public WebElement city;
 	
 	@FindBy(xpath = "//table[4]/tbody/tr[1]/td[2]")
