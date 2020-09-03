@@ -15,7 +15,7 @@ import com.automationpractice.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
-public class AppList_DBUI {
+public class AppList_DBUIStepDefs {
 	
 	@Given("I login to the website")
 	public void iLoginToTheWebsite() {

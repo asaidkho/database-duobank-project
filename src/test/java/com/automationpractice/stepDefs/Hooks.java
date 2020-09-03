@@ -17,7 +17,7 @@ import io.cucumber.java.Scenario;
 public class Hooks {
 	
 	
-	@Before
+	@Before ("@ui")
 	public void setUp() {
 		
 		Driver.getDriver().manage().timeouts()
@@ -29,11 +29,10 @@ public class Hooks {
 	@Before ("@db")
 	public void setUpDb(){
 		DatabaseUtils.establishConnection();
-		System.out.println("lskjfldfkjsdlfkjsdlfkj");
 	}
 	
 	
-	@After
+	@After ("@ui")
 	public void tearDown(Scenario scenario) {
 		if(scenario.isFailed()) {
 			byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
