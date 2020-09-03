@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 
 		tags = "@db",
 		features = "src/test/resources/com/automationpractice/features",
-		glue = "com/americanexpress/stepDefs",
+		glue = "com/automationpractice/stepDefs",
 		plugin = {
 				"summary",
 				"pretty",
