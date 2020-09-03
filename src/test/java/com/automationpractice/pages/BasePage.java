@@ -22,5 +22,8 @@ public class BasePage {
 	@FindBy(name="login")
 	public WebElement loginButton;
 	
+	@FindBy(xpath="//span[.='Application List']")
+	public WebElement appListLink;
+	
 	
 }

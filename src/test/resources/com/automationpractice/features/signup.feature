@@ -1,4 +1,4 @@
-@db
+#@db
 Feature: Test of signup feature for both DB and UI
 
  
