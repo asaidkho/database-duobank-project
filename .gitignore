@@ -16,6 +16,7 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+*.class
 
 ### STS ###
 .apt_generated
