@@ -1,8 +1,17 @@
 package com.automationpractice.stepDefs;
 
+import java.util.List;
+
+import com.automationpractice.pojos.MortgageApplication;
+
 import io.cucumber.java.DataTableType;
 
 public class CustomTypeTransformer {
 
-//	@DataTableType
+	@DataTableType
+	public MortgageApplication row(List<Integer> row) {	
+		return new MortgageApplication(row.get(0));
+	}
+	
+	
 }

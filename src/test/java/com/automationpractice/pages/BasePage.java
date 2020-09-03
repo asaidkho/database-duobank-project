@@ -21,6 +21,5 @@ public class BasePage {
 	
 	@FindBy(name="login")
 	public WebElement loginButton;
-	
-	
+
 }

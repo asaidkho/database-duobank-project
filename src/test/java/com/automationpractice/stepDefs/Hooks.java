@@ -23,6 +23,10 @@ public class Hooks {
 		Driver.getDriver().manage().timeouts()
 			.implicitlyWait(Long.parseLong(ConfigReader.getProperty("implicitWait")), TimeUnit.SECONDS);
 		Driver.getDriver().manage().window().maximize();
+		BasePage bp = new BasePage();
+		bp.loginEmail.sendKeys(ConfigReader.getProperty("username"));
+		bp.loginPassword.sendKeys(ConfigReader.getProperty("password"));
+		bp.loginButton.click();
 			
 	}
 	
