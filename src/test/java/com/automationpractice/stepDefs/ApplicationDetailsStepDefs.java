@@ -31,10 +31,9 @@ public class ApplicationDetailsStepDefs {
 	String purposeLoan;
 	String percentage;
 	
-	
-	List<Map<String, Object>> queryResultMap;
+    List<Map<String, Object>> queryResultMap;
 	private List<List<Object>> queryResultList;
-	
+
 	
 	@Given("I am on the mainpage")
 	public void i_am_on_the_mainpage() {
@@ -124,18 +123,24 @@ public class ApplicationDetailsStepDefs {
 	@Given("I retrive purpose_loan  from database")
 	public void iRetrivePurposeLoanFromDatabase() {
 		
-		queryResultMap = DatabaseUtils.getQueryResultMap(" SELECT  purpose_loan FROM tbl_mortagage;"); 
+		queryResultList = DatabaseUtils.getQueryResultList(" SELECT  purpose_loan FROM tbl_mortagage;"); 
 	}
 
 	@Then("I verify purpose_loan content is correct")
 	public void iVerifyPurposeLoanContentIsCorrect() {
 		
 	   String expected = "Purchase a Home";
-	   
-	   
-	   
+	 // for (Map<String, Object> map : queryResultMap) {
+	 //Assert.assertEquals(expected,Integer.parseInt(map.get("purpose_loan").toString()));
+		   
+		   for (int i=0; i<=queryResultList.size(); i++) {
+			   
+			   queryResultList.get(i).toString();
+			Assert.assertEquals(expected, queryResultList);
+	 } 
 	}
-
 }
+	
+
 	
 

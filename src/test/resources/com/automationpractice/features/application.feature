@@ -6,7 +6,7 @@ Feature: Checking Application details
 
 
 
-   @db
+   
     Scenario: Checking Users Application details
      Given I am on the mainpage
      When I enter the following  deatils and  I log in
@@ -16,7 +16,7 @@ Feature: Checking Application details
     When I click View Details to open application
     Then I verify Application details are matching with Application details in the DB
     
-    @db
+    
   Scenario: Checking users table contents
      Given I am on the mainpage
      When I enter the following  deatils and  I log in
