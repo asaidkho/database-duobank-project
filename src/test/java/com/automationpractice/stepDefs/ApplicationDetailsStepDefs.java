@@ -1,9 +1,11 @@
 package com.automationpractice.stepDefs;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.junit.Assert;
+import org.openqa.selenium.interactions.Actions;
 
 import com.automationpractice.pages.ApplicationPage;
 import com.automationpractice.pages.BasePage;
@@ -65,6 +67,10 @@ public class ApplicationDetailsStepDefs {
 	@When("I click View Details to open application")
 	public void i_click_view_details_to_open_application() {
 		DashboardPage dp = new DashboardPage();
+		
+		dp.entries.click();
+		dp.allEntries.click();
+		//dp.nextPage.click();
 		dp.viewDetails.click();
 	}
 
@@ -92,7 +98,6 @@ public class ApplicationDetailsStepDefs {
 		Assert.assertEquals(map.get("realtor_info"), ap.realtorInfo.getText());
 		Assert.assertEquals(map.get("purpose_loan"), ap.purposeLoan.getText());
 		Assert.assertEquals((map.get("down_payment_percent")+" %"), ap.percentage.getText());
-		
 		Assert.assertEquals(map.get("city"), ("[\""+ ap.city.getText()+"\"]"));
 		Assert.assertEquals(map.get("position"), ("[\""+ap.position.getText()+"\"]"));
 		
@@ -104,15 +109,11 @@ public class ApplicationDetailsStepDefs {
 	public void iRetriveFirstNameAndLastNameFromUsersTable() {
 	   
 		 queryResultMap = DatabaseUtils.getQueryResultMap("SELECT COUNT(*) as c from tbl_user WHERE first_name='' or  first_name IS NULL or last_name IS NULL or last_name='';");
-		
-		
 	}
 
 	@Then("I verify first name and last name is not null")
 	public void iVerifyFirstNameAndLastNameIsNotNull() {
 	    
-		
-		
 		int expectedCount = 0;
 		for (Map<String, Object> map : queryResultMap) {
 			
@@ -124,22 +125,30 @@ public class ApplicationDetailsStepDefs {
 	public void iRetrivePurposeLoanFromDatabase() {
 		
 		queryResultList = DatabaseUtils.getQueryResultList(" SELECT  purpose_loan FROM tbl_mortagage;"); 
+		
+		//queryResultMap = DatabaseUtils.getQueryResultMap(" SELECT  purpose_loan FROM tbl_mortagage;");
 	}
 
 	@Then("I verify purpose_loan content is correct")
 	public void iVerifyPurposeLoanContentIsCorrect() {
 		
-	   String expected = "Purchase a Home";
-	 // for (Map<String, Object> map : queryResultMap) {
-	 //Assert.assertEquals(expected,Integer.parseInt(map.get("purpose_loan").toString()));
+		
+		   String  expected =  "Purchase a Home";
 		   
-		   for (int i=0; i<=queryResultList.size(); i++) {
-			   
-			   queryResultList.get(i).toString();
-			Assert.assertEquals(expected, queryResultList);
-	 } 
-	}
-}
+		  
+		      
+		     // list.add("Purchase a Home");
+		    for (int i=0; i<queryResultList.size(); i++) {
+		    	
+					Assert.assertEquals(expected,queryResultList.get(i).get(0).toString());
+			   }
+		}
+		}
+	
+	
+
+
+
 	
 
 	

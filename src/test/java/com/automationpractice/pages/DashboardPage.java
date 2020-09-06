@@ -17,4 +17,14 @@ public class DashboardPage extends BasePage{
    @FindBy(xpath="//tbody//td[contains(text(), 'Donald')]/following-sibling::td[2]/a")
    public WebElement viewDetails;
 
+   
+   @FindBy(xpath="//label/select")
+   public WebElement entries;
+   
+   @FindBy(xpath="//label/select/option[4]")
+   public WebElement allEntries;
+   
+   @FindBy(xpath="//*[@id=\"DataTables_Table_0_paginate\"]/ul/li[3]/a")
+   public WebElement nextPage;
+   
 }
