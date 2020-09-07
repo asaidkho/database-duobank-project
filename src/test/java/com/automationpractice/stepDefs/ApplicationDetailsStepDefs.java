@@ -54,7 +54,6 @@ public class ApplicationDetailsStepDefs {
 		
 		bp.loginButton.click();
 		
-		
 	}
 
 	@When("I land on a Dashboard I click on Application list")
@@ -79,8 +78,6 @@ public class ApplicationDetailsStepDefs {
 	   
   ApplicationPage ap =new ApplicationPage();
         
-  
-  
         String query = "SELECT * FROM tbl_mortagage WHERE b_email='"+email+"'" ;
 		
 		System.out.println(query);
@@ -88,7 +85,6 @@ public class ApplicationDetailsStepDefs {
 		DatabaseUtils.getQueryResultMap(query);
 		
 		List<Map<String, Object>> queryResultMap = DatabaseUtils.getQueryResultMap(query);
-		
 		
 		Map<String, Object> map = queryResultMap.get(0);
 		
@@ -100,7 +96,6 @@ public class ApplicationDetailsStepDefs {
 		Assert.assertEquals((map.get("down_payment_percent")+" %"), ap.percentage.getText());
 		Assert.assertEquals(map.get("city"), ("[\""+ ap.city.getText()+"\"]"));
 		Assert.assertEquals(map.get("position"), ("[\""+ap.position.getText()+"\"]"));
-		
 		
 		DatabaseUtils.updateQuery("delete from users where username='"+email +"'");
 
@@ -120,36 +115,21 @@ public class ApplicationDetailsStepDefs {
 			   Assert.assertEquals(expectedCount,Integer.parseInt(map.get("c").toString()));
 		}
 	}
-
-	@Given("I retrive purpose_loan  from database")
+    @Given("I retrive purpose_loan  from database")
 	public void iRetrivePurposeLoanFromDatabase() {
 		
 		queryResultList = DatabaseUtils.getQueryResultList(" SELECT  purpose_loan FROM tbl_mortagage;"); 
-		
-		//queryResultMap = DatabaseUtils.getQueryResultMap(" SELECT  purpose_loan FROM tbl_mortagage;");
+	
 	}
 
 	@Then("I verify purpose_loan content is correct")
 	public void iVerifyPurposeLoanContentIsCorrect() {
-		
-		
 		   String  expected =  "Purchase a Home";
-		   
-		  
-		      
-		     // list.add("Purchase a Home");
+		 
 		    for (int i=0; i<queryResultList.size(); i++) {
-		    	
-					Assert.assertEquals(expected,queryResultList.get(i).get(0).toString());
+		    	Assert.assertEquals(expected,queryResultList.get(i).get(0).toString());
 			   }
 		}
 		}
-	
-	
-
-
-
-	
-
 	
 

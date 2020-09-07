@@ -10,6 +10,13 @@
 	</properties>
 	
 		<dependencies>
+		<dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>4.3.1</version>
+            <scope>test</scope>
+       </dependency>
+		
 
 		<dependency>
 			<groupId>io.cucumber</groupId>
@@ -112,7 +119,11 @@
 				<configuration>
 					<testFailureIgnore>true</testFailureIgnore>
 					<includes>
-						<include>**/*CukeRunner.java</include>	 
+						<include>**/*CukeRunner.java</include>	
+						
+						<parallel>methods</parallel>
+					<useUnlimitedThreads>true</useUnlimitedThreads>
+					 
 					</includes>
 				</configuration>
 			</plugin>
