@@ -10,7 +10,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @CucumberOptions(
 
 		tags = "@db",
-		features = "src/test/resources/com/americanexpress/features",
+		features = "src/test/resources/com/automationpractice/features",
 		glue = "com/americanexpress/stepDefs",
 		plugin = {
 				"summary",

@@ -9,7 +9,7 @@ import io.cucumber.java.DataTableType;
 public class CustomTypeTransformer {
 
 	@DataTableType
-	public MortgageApplication row(List<Integer> row) {	
+	public MortgageApplication row(List<String> row) {	
 		return new MortgageApplication(row.get(0));
 	}
 	
