@@ -14,7 +14,7 @@ Feature: Checking Application details
     When I click View Details to open application
     Then I verify Application details are matching with Application details in the DB
     
-    @db    
+  @db    
   Scenario: Checking users table contents
      Given I am on the mainpage
      When I enter the following  deatils and  I log in
@@ -24,7 +24,7 @@ Feature: Checking Application details
     Then I verify first name and last name is not null
     
     
-    @db
+   @db
    Scenario: Checking purpose_loan from db
    
     

@@ -20,13 +20,13 @@ import com.automationpractice.pojos.NewUser;
 
 		Response rs;
 
-		@Given("I am on the login page")
+		@Given("I am on login page")
 		public void i_am_on_the_login_page() {
 			RestAssured.baseURI = "http://duobank-env.eba-bgkwzq3h.us-east-2.elasticbeanstalk.com";
 		}
 
 		@When("I sent POST request to create new user")
-public void i_sent_post_request_to_create_new_user(List<Map<String,String>> row2) {
+    public void i_sent_post_request_to_create_new_user(List<Map<String,String>> row2) {
 			
 			rs = given().
 					body("{\"first_name\":\"" + row2.get(0).get("first_name")+
