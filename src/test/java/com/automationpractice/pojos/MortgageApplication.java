@@ -20,22 +20,22 @@ public class MortgageApplication {
 	private String eConsent_declarer_LastName;
 	private String eConsent_declarer_Email;
 	
-	private int row;
+	private String row;
 	
-	public MortgageApplication(int row) {
+	public MortgageApplication(String row) {
 		super();
 		this.row = row;
 	}
 	
 	
 	
-	public int getRow() {
+	public String getRow() {
 		return row;
 	}
 
 
 
-	public void setRow(int row) {
+	public void setRow(String row) {
 		this.row = row;
 	}
 
