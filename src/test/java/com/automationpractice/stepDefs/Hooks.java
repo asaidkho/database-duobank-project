@@ -17,12 +17,16 @@ import io.cucumber.java.Scenario;
 public class Hooks {
 	
 	
-	@Before
+	@Before ("@ui")
 	public void setUp() {
 		
 		Driver.getDriver().manage().timeouts()
 			.implicitlyWait(Long.parseLong(ConfigReader.getProperty("implicitWait")), TimeUnit.SECONDS);
 		Driver.getDriver().manage().window().maximize();
+		//BasePage bp = new BasePage();
+		//bp.loginEmail.sendKeys(ConfigReader.getProperty("username"));
+		//bp.loginPassword.sendKeys(ConfigReader.getProperty("password"));
+		//bp.loginButton.click();
 			
 	}
 	
@@ -32,7 +36,7 @@ public class Hooks {
 	}
 	
 	
-	@After
+	@After ("@ui")
 	public void tearDown(Scenario scenario) {
 		if(scenario.isFailed()) {
 			byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);

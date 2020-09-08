@@ -9,8 +9,8 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-		tags = "@db",
-		features = "src/test/resources/com/automationpractice/features",
+	
+		features = "src/test/resources/com/automationpractice/parallel",
 		glue = "com/automationpractice/stepDefs",
 		plugin = {
 				"summary",
@@ -27,5 +27,5 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		)
 
 
-public class CukeRunner {
+public class ParallelRunner {
 }

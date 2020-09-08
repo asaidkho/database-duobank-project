@@ -28,7 +28,10 @@ public class DatabaseUtils {
         try {
             connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
+        	System.out.println("SLKJDFLDJFLSDJFSLDFJKSLDFKJSLDFJSDLFKJSDLFKJLJDFSLJ");
             e.printStackTrace();
+            
+            
         }
     }
     
