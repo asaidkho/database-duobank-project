@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 HELP.md
 target/
@@ -46,3 +47,6 @@ build/
 ### VS Code ###
 .vscode/
 
+=======
+/target/
+>>>>>>> 2aac8f8a338d7f0108b2949e6efb9a99deeeb4db

@@ -13,21 +13,20 @@ import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Driver {
+public  class Driver {
 	
-	private static WebDriver driver;
+	private static final ThreadLocal<WebDriver> drivers =  new ThreadLocal<>(); // also called driverPool
 	
-	
-	private Driver() {};
+	private  Driver() {};
 	
 	
 	public static WebDriver getDriver(String browser) {
 		
-		if(driver == null ) {
+		if(drivers.get() == null ) {
 			
 			if(browser == null) {
 				browser=ConfigReader.getProperty("browser");
-			}
+		}
 			
 			switch(browser) {
 			
@@ -35,83 +34,70 @@ public class Driver {
 			case "chrome":
 
 				WebDriverManager.chromedriver().setup();
-				driver = new ChromeDriver();
+				drivers.set(new ChromeDriver());
 				break;
 				
 			case "firefox":
 				WebDriverManager.firefoxdriver().setup();
-				driver = new FirefoxDriver();
+				drivers.set(new FirefoxDriver());
 				break;
 				
 				
 			case "edge":
 				WebDriverManager.edgedriver().setup();
-				driver = new EdgeDriver();
+				drivers.set( new EdgeDriver());
 				break;
 				
 			case "opera":
 				WebDriverManager.operadriver().setup();
-				driver = new OperaDriver();
+				drivers.set(new OperaDriver());
 				break;
 			
 			case "ie":
 				WebDriverManager.iedriver().setup();
-				driver = new InternetExplorerDriver();
+				drivers.set(new InternetExplorerDriver());
 				break;
 			case "headlessChrome":
 				ChromeOptions options = new ChromeOptions();
 				options.addArguments("--headless");
 				options.addArguments("--disable-gpu"); // -> extra setting required for Windows machines
 				WebDriverManager.chromedriver().setup();
-				driver = new ChromeDriver(options);
+				drivers.set(new ChromeDriver(options));
 				break;
 				
 			case "headlessFirefox":
 				FirefoxOptions foptions = new FirefoxOptions();
 				foptions.addArguments("--headless");
 				WebDriverManager.firefoxdriver().setup();
-				driver = new FirefoxDriver(foptions);
+				drivers.set(new FirefoxDriver(foptions));
 				break;
 			case "phantomJS":	
 				WebDriverManager.phantomjs().setup();
-				driver 	= new PhantomJSDriver();
+				drivers.set(new PhantomJSDriver());
 				break;
 			case "htmlUnit":	
-				driver 	= new HtmlUnitDriver(true); //-> true enables JavaScript
+				drivers.set(new HtmlUnitDriver(true)); //-> true enables JavaScript
 				break;
 
 								
 			}
-			
-			
-			
-			
-			
 		}
 		
-		return driver;
-		
-				
-		
-	}
+		return drivers.get();
+		}
 	
 	public static WebDriver getDriver() {
 		return getDriver(null);
 	}
 
 	
-	public static void quit() {
-		if(driver != null) {
-			driver.quit();
-			driver = null;
+	public static void quit() { // synchronized keyword makes your method thread-safe
+		if(drivers.get() != null) {
+			drivers.get().quit();
+			drivers.remove();
 		}
 		
 	}
-	
-	
-	
-	
-	
-	
+		
 
 }

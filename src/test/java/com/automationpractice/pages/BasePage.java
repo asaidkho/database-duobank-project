@@ -24,6 +24,12 @@ public class BasePage {
 	
 	@FindBy(xpath="//span[.='Application List']")
 	public WebElement appListLink;
+	@FindBy(id="exampleInputEmail1")
+	public WebElement email;
+	
+	@FindBy(id="exampleInputPassword1")
+	public WebElement password;
+	
 	
 	
 }
