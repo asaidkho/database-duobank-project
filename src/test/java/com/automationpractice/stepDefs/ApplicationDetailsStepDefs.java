@@ -82,10 +82,11 @@ public class ApplicationDetailsStepDefs {
 		
 		System.out.println(query);
 		
-		DatabaseUtils.getQueryResultMap(query);
+		//DatabaseUtils.getQueryResultMap(query);
 		
-		List<Map<String, Object>> queryResultMap = DatabaseUtils.getQueryResultMap(query);
+			List<Map<String, Object>> queryResultMap = DatabaseUtils.getQueryResultMap(query);
 		
+		System.out.println(queryResultMap.isEmpty());
 		Map<String, Object> map = queryResultMap.get(0);
 		
 		Assert.assertEquals(map.get("b_firstName"), ap.firstName.getText());
@@ -97,13 +98,13 @@ public class ApplicationDetailsStepDefs {
 		Assert.assertEquals(map.get("city"), ("[\""+ ap.city.getText()+"\"]"));
 		Assert.assertEquals(map.get("position"), ("[\""+ap.position.getText()+"\"]"));
 		
-		DatabaseUtils.updateQuery("delete from users where username='"+email +"'");
+		//DatabaseUtils.updateQuery("delete from tbl_user where b_email='"+email +"'");
 
 	}
 	@Given("I retrive first name and last name from users table")
 	public void iRetriveFirstNameAndLastNameFromUsersTable() {
 	   
-		 queryResultMap = DatabaseUtils.getQueryResultMap("SELECT COUNT(*) as c from tbl_user WHERE first_name='' or  first_name IS NULL or last_name IS NULL or last_name='';");
+		 queryResultMap = DatabaseUtils.getQueryResultMap("SELECT COUNT(*) as c from tbl_user WHERE first_name='' or  first_name IS NULL or last_name IS NULL or last_name=''");
 	}
 
 	@Then("I verify first name and last name is not null")

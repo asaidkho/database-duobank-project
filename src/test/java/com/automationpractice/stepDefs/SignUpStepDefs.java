@@ -22,7 +22,7 @@ public class SignUpStepDefs {
 	private String email;
 	private String password;
 	
-	@Given("I am on the login page")
+	@Given("I am on the login page2")
 	public void iAmOnTheLoginPage() {
 	    Driver.getDriver().get(ConfigReader.getProperty("url"));
 	   

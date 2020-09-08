@@ -115,7 +115,7 @@ public class DatabaseUtils {
                 for (int i = 1; i <= rsmd.getColumnCount(); i++) {
                     colNameValueMap.put(rsmd.getColumnName(i), resultSet.getObject(i));
                 }
-               // rowList.add(colNameValueMap);
+                rowList.add(colNameValueMap);
             }
         } catch (SQLException e) {
             e.printStackTrace();

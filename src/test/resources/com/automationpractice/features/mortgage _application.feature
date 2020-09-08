@@ -18,8 +18,8 @@ Feature: DataBase test of Mortgage Application
    Examples:
    	| row  |
    	| 1    |
- #  	| 2    |
- #   	| 3    |
+   	| 2    |
+   	| 3    |
  #   	| 4    |
   #  	| 5    |
  #   	| 6    |

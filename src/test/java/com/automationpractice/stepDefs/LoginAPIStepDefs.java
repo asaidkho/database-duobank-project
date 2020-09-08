@@ -17,7 +17,7 @@ public class LoginAPIStepDefs {
 	
 	Response rs;
 	
-	@Given("I am on the login page")
+	@Given("I am on the login page3")
 	public void i_am_on_the_login_page() {
 		RestAssured.baseURI = "http://duobank-env.eba-bgkwzq3h.us-east-2.elasticbeanstalk.com";
 	}

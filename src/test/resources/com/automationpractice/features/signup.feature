@@ -5,7 +5,7 @@ Feature: Test of signup feature for both DB and UI
 
   @db
   Scenario Outline: Test of signup feature
-    Given I am on the login page
+    Given I am on the login page2
     And I click on the sign up link
     When I fill out the field with the following data and click on submit
     		| fname  	| lname 	| email  	| password 		|
