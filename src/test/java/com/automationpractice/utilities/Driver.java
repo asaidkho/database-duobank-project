@@ -15,7 +15,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public  class Driver {
 	
-	private static final ThreadLocal<WebDriver> drivers =  new ThreadLocal<>(); // also called driverPool
+	private static final ThreadLocal<WebDriver> drivers =  new ThreadLocal<>(); //driverPool
 	
 	private  Driver() {};
 	
