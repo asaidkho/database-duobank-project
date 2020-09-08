@@ -1,6 +1,6 @@
 Feature: Test the list for the correct entries
 
-#@db
+@db
 Scenario: Test list
 
 Given I login to the website

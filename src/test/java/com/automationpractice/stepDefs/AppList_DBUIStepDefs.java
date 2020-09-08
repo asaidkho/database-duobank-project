@@ -8,6 +8,7 @@ import org.junit.Assert;
 import com.automationpractice.pages.AppListPage;
 import com.automationpractice.pages.BasePage;
 import com.automationpractice.pages.LoginPage;
+import com.automationpractice.utilities.BrowserUtilities;
 import com.automationpractice.utilities.ConfigReader;
 import com.automationpractice.utilities.DatabaseUtils;
 import com.automationpractice.utilities.Driver;
@@ -20,11 +21,13 @@ public class AppList_DBUIStepDefs {
 	@Given("I login to the website")
 	public void iLoginToTheWebsite() {
 		Driver.getDriver().get(ConfigReader.getProperty("url"));
-	    new LoginPage().login();		
+	    new LoginPage().login();
+	   
 	}
 
 	@Given("I click on the Application List link")
 	public void iClickOnTheApplicationListLink() {
+		BrowserUtilities.waitForVisibility(new BasePage().appListLink, 10);
 	   new BasePage().appListLink.click();
 	}
 

@@ -17,7 +17,7 @@ import io.cucumber.java.Scenario;
 public class Hooks {
 	
 	
-	@Before ("@ui")
+	@Before ()
 	public void setUp() {
 		
 		Driver.getDriver().manage().timeouts()
@@ -32,7 +32,7 @@ public class Hooks {
 	}
 	
 	
-	@After ("@ui")
+	@After ()
 	public void tearDown(Scenario scenario) {
 		if(scenario.isFailed()) {
 			byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
