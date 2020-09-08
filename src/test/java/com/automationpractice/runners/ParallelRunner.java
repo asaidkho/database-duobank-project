@@ -10,7 +10,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @CucumberOptions(
 
 	
-		features = "src/test/resources/com/automationpractice/parallel",
+		features = "src/test/resources/com/automationpractice/features",
 		glue = "com/automationpractice/stepDefs",
 		plugin = {
 				"summary",
