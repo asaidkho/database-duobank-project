@@ -5,10 +5,15 @@ import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.junit.Assert;
 import org.junit.Test;
 
+import com.automationpractice.utilities.DatabaseUtils;
+
+import io.cucumber.java.en.Then;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 
@@ -82,15 +87,32 @@ public class Kamil_APIStepDefs {
 		
 	}
 	
-	@Test
-	public void getMortgageDetails() {
+	@Then("List of mortgages returned by API retrieved succesfully")
+	public void listOfMortgagesReturnedByAPIWhenRequestedMustMatchWithDBRecords() {
+		RestAssured.baseURI = "http://duobank-env.eba-bgkwzq3h.us-east-2.elasticbeanstalk.com";
+
+		login();
+		JsonPath jp = given()
+				.header("Authorization", token)
+			.when()
+				.get("/api/getmortagage.php")
+			.then()
+				.assertThat().statusCode(200)
+				.extract().response().jsonPath();
+		
+		
+	}
+	
+
+	@Then("Details of the mortgage with id {int} gets retrieved by API successfully")
+	public void detailsOfTheMortgageWithIdGetsRetrievedByAPISuccessfully(Integer id) {
 		
 		RestAssured.baseURI = "http://duobank-env.eba-bgkwzq3h.us-east-2.elasticbeanstalk.com";
 		
 		login();
 		
 		Map<String, Object> mortgage = new HashMap<>();
-		mortgage.put("id", 9);
+		mortgage.put("id", id);
 		
 		JsonPath jp = given()
 			.header("Authorization", token)

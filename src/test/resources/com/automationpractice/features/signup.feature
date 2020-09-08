@@ -1,9 +1,9 @@
-#@db
+
 Feature: Test of signup feature for both DB and UI
 
  
 
-  @temp
+  @db
   Scenario Outline: Test of signup feature
     Given I am on the login page
     And I click on the sign up link
