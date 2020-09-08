@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> gunel
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -49,16 +45,18 @@ build/
 
 ### VS Code ###
 .vscode/
-<<<<<<< HEAD
-=======
+
 */target/**
 /.classpath
 /bin/
 /.settings/
->>>>>>> a644a9ef2d77056b3e8d56caa9636f06348b30e3
-=======
-
-=======
 /target/
->>>>>>> 2aac8f8a338d7f0108b2949e6efb9a99deeeb4db
->>>>>>> gunel
+
+/target/
+
+.classpath
+
+.project
+
+.settings
+
